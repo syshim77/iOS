@@ -65,4 +65,10 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     @IBAction func dismissKeyboard(sender: AnyObject) {
         textField.resignFirstResponder()
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        print("ConversionViewController loaded its view.")
+    }
 }
