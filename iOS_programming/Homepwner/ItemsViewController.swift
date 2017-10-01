@@ -11,6 +11,35 @@ import UIKit
 class ItemsViewController: UITableViewController {
     var itemStore: ItemStore!
     
+    @IBAction func addNewItem(sender: AnyObject) {
+        // 새 물품을 만들고 그것을 저장소에 추가한다
+        let newItem = itemStore.createItem()
+        
+        // 배열 안에서 이 항목의 위치를 계산한다
+        if let index = itemStore.allItems.index(of: newItem) {
+            let indexPath = NSIndexPath(row: index, section: 0)
+            
+            // 테이블에 새로운 행을 삽입한다
+            tableView.insertRows(at: [indexPath as IndexPath], with: .automatic)
+        }
+    }
+    @IBAction func toggleEditingMode(sender: AnyObject) {
+        // 현재 편집 모드이면
+        if isEditing {
+            // 사용자에게 상태를 알리기 위해 버튼의 텍스트를 변경한다
+            sender.setTitle("Edit", for: .normal)
+            
+            // 편집 모드를 끈다
+            setEditing(false, animated: true)
+        } else {
+            // 사용자에게 상태를 알리기 위해 버튼의 텍스트를 변경한다
+            sender.setTitle("Done", for: .normal)
+            
+            // 편집 모드로 들어간다
+            setEditing(true, animated: true)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemStore.allItems.count
     }
@@ -27,6 +56,38 @@ class ItemsViewController: UITableViewController {
         cell.detailTextLabel?.text = "$\(item.valueInDollars)"
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        // 테이블 뷰가 삭제 명령의 적용을 요청하면...
+        if editingStyle == .delete {
+            let item = itemStore.allItems[indexPath.row]
+            
+            let title = "Delete \(item.name)?"
+            let message = "Are you sure you want to delete this item?"
+            
+            let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            ac.addAction(cancelAction)
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: {(ACTION) -> Void in
+                // 저장소에서 그 항목을 제거한다
+                self.itemStore.removeItem(item: item)
+                
+                // 또한 애니메이션과 함께 테이블 뷰에서 그 행을 제거한다
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            })
+            ac.addAction(deleteAction)
+            
+            // 알림창 컨트롤러를 표시한다
+            present(ac, animated: true, completion: nil)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        // 모델을 업데이트한다
+        itemStore.moveItemAtIndex(fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
     }
     
     override func viewDidLoad() {

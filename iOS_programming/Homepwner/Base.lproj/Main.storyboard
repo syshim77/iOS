@@ -16,9 +16,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="nd6-vS-D64">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQR-59-Nsl">
+                                    <rect key="frame" x="8" y="7" width="175.5" height="30"/>
+                                    <state key="normal" title="Edit"/>
+                                    <connections>
+                                        <action selector="toggleEditingModeWithSender:" destination="pAe-hj-A8U" eventType="touchUpInside" id="laH-YS-6Ud"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciG-ik-JcI">
+                                    <rect key="frame" x="191.5" y="7" width="175.5" height="30"/>
+                                    <state key="normal" title="Add"/>
+                                    <connections>
+                                        <action selector="addNewItemWithSender:" destination="pAe-hj-A8U" eventType="touchUpInside" id="WEg-xV-U9C"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="DQR-59-Nsl" firstAttribute="centerY" secondItem="nd6-vS-D64" secondAttribute="centerY" id="7L7-Nn-aEi"/>
+                                <constraint firstItem="ciG-ik-JcI" firstAttribute="leading" secondItem="DQR-59-Nsl" secondAttribute="trailing" constant="8" id="MOT-Ee-aos"/>
+                                <constraint firstItem="DQR-59-Nsl" firstAttribute="leading" secondItem="nd6-vS-D64" secondAttribute="leading" constant="8" id="hJR-ou-m99"/>
+                                <constraint firstAttribute="trailing" secondItem="ciG-ik-JcI" secondAttribute="trailing" constant="8" id="keq-FJ-IFc"/>
+                                <constraint firstItem="ciG-ik-JcI" firstAttribute="centerY" secondItem="nd6-vS-D64" secondAttribute="centerY" id="w1M-aw-8TU"/>
+                                <constraint firstItem="ciG-ik-JcI" firstAttribute="width" secondItem="DQR-59-Nsl" secondAttribute="width" id="xLs-G8-o1O"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="8yp-37-uM9" detailTextLabel="OAU-xr-TbL" style="IBUITableViewCellStyleValue1" id="xdG-AA-TPR">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xdG-AA-TPR" id="gOR-Kb-zxP">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
