@@ -107,4 +107,17 @@ class ItemsViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 65
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 발생한 세그웨이가 "ShowItem" 세그웨이이면
+        if segue.identifier == "ShowItem" {
+            // 방금 어느 행이 눌렸는지 계산한다
+            if let row = tableView.indexPathForSelectedRow?.row {
+                // 이 행에 연결된 Item을 가져와서 전달한다
+                let item = itemStore.allItems[row]
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.item = item
+            }
+        }
+    }
 }
