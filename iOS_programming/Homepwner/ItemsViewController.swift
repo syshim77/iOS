@@ -11,6 +11,12 @@ import UIKit
 class ItemsViewController: UITableViewController {
     var itemStore: ItemStore!
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
+    }
+    
     @IBAction func addNewItem(sender: AnyObject) {
         // 새 물품을 만들고 그것을 저장소에 추가한다
         let newItem = itemStore.createItem()
@@ -21,22 +27,6 @@ class ItemsViewController: UITableViewController {
             
             // 테이블에 새로운 행을 삽입한다
             tableView.insertRows(at: [indexPath as IndexPath], with: .automatic)
-        }
-    }
-    @IBAction func toggleEditingMode(sender: AnyObject) {
-        // 현재 편집 모드이면
-        if isEditing {
-            // 사용자에게 상태를 알리기 위해 버튼의 텍스트를 변경한다
-            sender.setTitle("Edit", for: .normal)
-            
-            // 편집 모드를 끈다
-            setEditing(false, animated: true)
-        } else {
-            // 사용자에게 상태를 알리기 위해 버튼의 텍스트를 변경한다
-            sender.setTitle("Done", for: .normal)
-            
-            // 편집 모드로 들어간다
-            setEditing(true, animated: true)
         }
     }
     
@@ -94,15 +84,14 @@ class ItemsViewController: UITableViewController {
         itemStore.moveItemAtIndex(fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 상태 바의 높이를 얻는다
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        
-        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
-        tableView.contentInset = insets
-        tableView.scrollIndicatorInsets = insets
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 65
