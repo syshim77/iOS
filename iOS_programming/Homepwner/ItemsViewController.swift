@@ -10,6 +10,7 @@ import UIKit
 
 class ItemsViewController: UITableViewController {
     var itemStore: ItemStore!
+    var imageStore: ImageStore!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -69,6 +70,9 @@ class ItemsViewController: UITableViewController {
                 // 저장소에서 그 항목을 제거한다
                 self.itemStore.removeItem(item: item)
                 
+                // 이미지 저장소에서 item의 이미지를 제거한다
+                self.imageStore.deleteImageForKey(key: item.itemKey)
+                
                 // 또한 애니메이션과 함께 테이블 뷰에서 그 행을 제거한다
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
             })
@@ -106,6 +110,7 @@ class ItemsViewController: UITableViewController {
                 let item = itemStore.allItems[row]
                 let detailViewController = segue.destination as! DetailViewController
                 detailViewController.item = item
+                detailViewController.imageStore = imageStore
             }
         }
     }
