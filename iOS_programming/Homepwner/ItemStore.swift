@@ -10,6 +10,17 @@ import UIKit
 
 class ItemStore {
     var allItems = [Item]()
+    let itemArchiveURL: NSURL = {
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentsDirectories.first!
+        return documentDirectory.appendingPathComponent("items.archive") as NSURL
+    }()
+    
+    init() {
+        if let archivedItems = NSKeyedUnarchiver.unarchiveObject(withFile: itemArchiveURL.path!) as? [Item] {
+            allItems += archivedItems
+        }
+    }
     
     func createItem() -> Item {
         let newItem = Item(random: true)
@@ -38,5 +49,10 @@ class ItemStore {
         
         // 항목을 배열에서 새 위치에 삽입한다
         allItems.insert(movedItem, at: toIndex)
+    }
+    
+    func saveChanges() -> Bool {
+        print("Saving items to: \(itemArchiveURL.path!)")
+        return NSKeyedArchiver.archiveRootObject(allItems, toFile: itemArchiveURL.path!)
     }
 }

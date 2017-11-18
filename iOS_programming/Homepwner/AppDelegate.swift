@@ -12,13 +12,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let itemStore = ItemStore()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        // ItemStore를 만든다
-        let itemStore = ItemStore()
         
         // ImageStore를 만든다
         let imageStore = ImageStore()
@@ -54,6 +51,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func applicationDidEnterBackground(application: UIApplication) {
+        let success = itemStore.saveChanges()
+        if (success) {
+            print("Saved all of the Items")
+        } else {
+            print("Could not save any of the Items")
+        }
+    }
 }
 
