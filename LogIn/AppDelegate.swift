@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  LogIn
 //
-//  Created by Shim Sooyeon on 2017. 8. 3..
+//  Created by Shim Sooyeon on 2017. 11. 15..
 //  Copyright © 2017년 Shim Sooyeon. All rights reserved.
 //
 

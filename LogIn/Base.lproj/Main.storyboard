@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LogIn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Yagom" translatesAutoresizingMaskIntoConstraints="NO" id="FcZ-CS-lvl">
+                                <rect key="frame" x="75" y="52" width="225" height="206"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="225" id="7D7-WY-4YL"/>
+                                    <constraint firstAttribute="height" constant="206" id="GMF-AW-743"/>
+                                    <constraint firstAttribute="width" constant="225" id="c5p-ns-DLU"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tkL-OK-OAf">
+                                <rect key="frame" x="75" y="318" width="225" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Vmo-hM-hVh">
+                                <rect key="frame" x="75" y="356" width="225" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wS0-Yk-CAn">
+                                <rect key="frame" x="110" y="426" width="47" height="30"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SignInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="48M-eJ-jIN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Htj-3i-slX">
+                                <rect key="frame" x="210" y="426" width="55" height="30"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="SignUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XRi-6Q-eYx"/>
+                                    <segue destination="uaW-XU-htL" kind="show" id="XuR-v8-JJ8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FcZ-CS-lvl" secondAttribute="trailing" constant="75" id="Chg-3B-i2e"/>
+                            <constraint firstItem="FcZ-CS-lvl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="FHI-O8-I6T"/>
+                            <constraint firstItem="tkL-OK-OAf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="Sjc-TG-wiA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vmo-hM-hVh" secondAttribute="trailing" constant="75" id="Xwd-QS-aVe"/>
+                            <constraint firstItem="FcZ-CS-lvl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="Ykd-nT-auK"/>
+                            <constraint firstItem="wS0-Yk-CAn" firstAttribute="top" secondItem="Vmo-hM-hVh" secondAttribute="bottom" constant="40" id="dPo-dB-Rmy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tkL-OK-OAf" secondAttribute="trailing" constant="75" id="eWr-mS-9ok"/>
+                            <constraint firstItem="Vmo-hM-hVh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="fRf-V0-wlP"/>
+                            <constraint firstItem="Vmo-hM-hVh" firstAttribute="top" secondItem="tkL-OK-OAf" secondAttribute="bottom" constant="8" id="hxF-BJ-yYq"/>
+                            <constraint firstItem="Htj-3i-slX" firstAttribute="top" secondItem="Vmo-hM-hVh" secondAttribute="bottom" constant="40" id="mTH-md-bNC"/>
+                            <constraint firstItem="tkL-OK-OAf" firstAttribute="top" secondItem="FcZ-CS-lvl" secondAttribute="bottom" constant="60" id="rOb-3Y-YiQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Htj-3i-slX" secondAttribute="trailing" constant="110" id="rSb-F3-RyR"/>
+                            <constraint firstItem="wS0-Yk-CAn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="zdl-OU-eDA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="use-kg-8Fv" appends="YES" id="VW1-IY-SfI"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="IDTextField" destination="tkL-OK-OAf" id="TlF-Ly-a8W"/>
+                        <outlet property="PWTextField" destination="Vmo-hM-hVh" id="kc4-cZ-6Uo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="use-kg-8Fv">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="BYZ-38-t0r" id="857-De-snA"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="32.833583208395808"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="jV6-s0-Nce">
+            <objects>
+                <viewController id="uaW-XU-htL" customClass="SignUpViewController" customModule="LogIn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="99y-SA-eDl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iUC-zy-pPq">
+                                <rect key="frame" x="16" y="20" width="121" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="gus-dN-YgD" appends="YES" id="VCR-rS-eCO"/>
+                                </connections>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qPj-hj-hb4">
+                                <rect key="frame" x="145" y="58" width="214" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aSS-mf-cXA">
+                                <rect key="frame" x="145" y="20" width="214" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Check Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PuI-9P-u68">
+                                <rect key="frame" x="145" y="96" width="214" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1e-ji-0Wq">
+                                <rect key="frame" x="66" y="617" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="uaW-XU-htL" eventType="touchUpInside" id="sJn-b0-Xyn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeK-fY-KH1">
+                                <rect key="frame" x="260" y="617" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="SignUpButton:" destination="uaW-XU-htL" eventType="touchUpInside" id="cV2-GW-XYy"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lsh-dd-VvP">
+                                <rect key="frame" x="16" y="134" width="343" height="475"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.72771294562349165" green="0.76215152563908339" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="T3d-ze-eDK"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="2v8-o5-Je3" appends="YES" id="bgf-ZX-kVr"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="IDTextField" destination="aSS-mf-cXA" id="zRE-Fc-F4r"/>
+                        <outlet property="PWTextField" destination="qPj-hj-hb4" id="QFH-hL-Y4g"/>
+                        <outlet property="checkPWTextField" destination="PuI-9P-u68" id="ZJh-AF-2Gm"/>
+                        <outlet property="photoImageView" destination="iUC-zy-pPq" id="SBo-Ny-8Qr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PSM-Ip-JyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="2v8-o5-Je3">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="uaW-XU-htL" id="iOu-aS-F60"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="gus-dN-YgD">
+                    <connections>
+                        <action selector="imageTapped:" destination="uaW-XU-htL" id="ftK-pD-37d"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="805.60000000000002" y="32.833583208395808"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Yagom" width="73" height="73"/>
+    </resources>
+</document>
