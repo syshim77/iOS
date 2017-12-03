@@ -129,3 +129,29 @@
 ***Chapter 16***  
 [Homepwner project]
 - Any Width | Any Height -> Any Width | Compact Height
+- function (_ parameter)
+  - if _ : don't mention parameter name
+  - use _ at first parameter and write function name including first parameter name
+
+***Chapter 17***
+[TouchTracker]
+- Structure
+  - no inheritance
+  - no initializer -> get initializer per member
+  - value type(class: reference type)
+- value type vs reference type
+  - value type: allocate by copying the value
+  - reference type: same instance's reference is given
+- @IBInspectable
+  - announce property, which wants to be set, using attribute inspector to interface builder
+  - apply: CGPoint, CGSize, CGRect, UIColor, UIImage etc
+
+***Chapter 18***
+[TouchTracker]
+- UIGestureRecognizer
+  - Target-Action
+  - func action(gestureRecognizer: UIGestureRecognizer)
+- UIMenuController
+  - have UIMenuItem object list and show at view
+  - each list have title, action
+  - only one per program
