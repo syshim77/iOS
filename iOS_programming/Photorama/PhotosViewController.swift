@@ -42,15 +42,11 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         store.fetchRecentPhotos() {
             (photosResult) -> Void in
             
-            OperationQueue.main.addOperation() {
-                switch photosResult {
-                case let .Success(photos):
-                    print("Successfully found \(photos.count) recent photos.")
-                    self.photoDataSource.photos = photos
-                case let .Failure(error):
-                    self.photoDataSource.photos.removeAll()
-                    print("Error fetching recent photos: \(error)")
-                }
+            let sortByDateTaken = NSSortDescriptor(key: "dateTaken", ascending: true)
+            let allPhotos = try! self.store.fetchMainQueuePhotos(predicate: nil, sortDescriptors: [sortByDateTaken])
+            
+            OperationQueue.main.addOperation {
+                self.photoDataSource.photos = allPhotos
                 self.collectionView.reloadSections(NSIndexSet(index: 0) as IndexSet)
             }
         }
@@ -58,7 +54,7 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowPhoto" {
-            if let selectedIndexPath = collectionView.indexPathsForSelectedItems()?.first {
+            if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
                 let photo = photoDataSource.photos[selectedIndexPath.row]
                 
                 let destinationVC = segue.destination as! PhotoInfoViewController
