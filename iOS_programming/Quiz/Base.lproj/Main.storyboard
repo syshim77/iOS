@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,6 +21,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPz-dk-1aL">
+                                <rect key="frame" x="138" y="57" width="98" height="30"/>
+                                <state key="normal" title="Next Question"/>
+                                <connections>
+                                    <action selector="showNextQuestionWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uhX-eI-osa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khv-aU-Grx">
+                                <rect key="frame" x="166.5" y="28" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5z-ja-Tg9">
                                 <rect key="frame" x="175" y="28" width="25" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -33,13 +46,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPz-dk-1aL">
-                                <rect key="frame" x="138" y="57" width="98" height="30"/>
-                                <state key="normal" title="Next Question"/>
-                                <connections>
-                                    <action selector="showNextQuestionWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uhX-eI-osa"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9T-dK-QRS">
                                 <rect key="frame" x="141" y="352" width="93" height="30"/>
                                 <state key="normal" title="Show Answer"/>
@@ -50,19 +56,24 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="P5z-ja-Tg9" firstAttribute="centerX" secondItem="OPz-dk-1aL" secondAttribute="centerX" id="1RV-Gq-DP0"/>
                             <constraint firstItem="L9T-dK-QRS" firstAttribute="top" secondItem="KvP-xN-1is" secondAttribute="bottom" constant="8" id="9Aj-hW-lXK"/>
                             <constraint firstItem="KvP-xN-1is" firstAttribute="top" secondItem="OPz-dk-1aL" secondAttribute="bottom" constant="236" id="Aee-ks-CYf"/>
                             <constraint firstItem="P5z-ja-Tg9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bf3-Vk-eep"/>
+                            <constraint firstItem="OPz-dk-1aL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LCm-XE-30I"/>
+                            <constraint firstItem="khv-aU-Grx" firstAttribute="top" secondItem="P5z-ja-Tg9" secondAttribute="top" id="XUW-jk-8p1"/>
                             <constraint firstItem="P5z-ja-Tg9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="cJq-PC-csY"/>
                             <constraint firstItem="OPz-dk-1aL" firstAttribute="top" secondItem="P5z-ja-Tg9" secondAttribute="bottom" constant="8" id="eJx-Xw-fvk"/>
+                            <constraint firstItem="khv-aU-Grx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rBQ-TQ-jWm"/>
                             <constraint firstItem="L9T-dK-QRS" firstAttribute="centerX" secondItem="OPz-dk-1aL" secondAttribute="centerX" id="s8X-9h-Ovs"/>
                             <constraint firstItem="KvP-xN-1is" firstAttribute="centerX" secondItem="OPz-dk-1aL" secondAttribute="centerX" id="veD-6U-01D"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="KvP-xN-1is" id="Zua-fb-aa4"/>
-                        <outlet property="questionLabel" destination="P5z-ja-Tg9" id="V57-V4-K0S"/>
+                        <outlet property="currentQuestionLabel" destination="P5z-ja-Tg9" id="MhU-LC-mLE"/>
+                        <outlet property="currentQuestionLabelCenterXConstraint" destination="Bf3-Vk-eep" id="L6E-eT-Pdv"/>
+                        <outlet property="nextQuestionLabel" destination="khv-aU-Grx" id="YT8-v1-IIc"/>
+                        <outlet property="nextQuestionLabelCenterXConstraint" destination="rBQ-TQ-jWm" id="elj-ck-gLr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
